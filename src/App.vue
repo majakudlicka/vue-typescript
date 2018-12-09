@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <OrderTS msg="Simple Order App" :order="exampleOrder" />
+    <OrderTS msg="Simple Order App in TS" :order="exampleOrder" />
+    <br>
+    <OrderJS msg="Simple Order App in JS" :order="exampleOrder"></OrderJS>
   </div>
 </template>
 
@@ -8,17 +10,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { Order } from './lib/types';
 import OrderTS from './components/OrderTS.vue';
-
-interface Order {
-    productName: string;
-    quantity: number;
-}
+import OrderJS from './components/OrderJS.vue';
 
 @Component({
     // Components are declared inside @Component decorator
   components: {
     OrderTS,
+    OrderJS,
   },
     // It is also a place where we could declare Vuex's binding helpers if using vuex
 })

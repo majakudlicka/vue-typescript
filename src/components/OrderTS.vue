@@ -3,7 +3,7 @@
     <h3>{{ msg }}</h3>
     <div>{{order.productName}} </div>
     <div> has quantity of {{ order.quantity }} </div>
-    <div> which is {{isAboveThreshold}}</div>
+    <div> which is <b>{{isAboveThreshold}}</b></div>
     <div>
       <button @click="increment()">INCREASE Order Quantity</button>
       <br>
@@ -16,11 +16,7 @@
 <script lang="ts">
  //  Lang="ts"
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator';
-
-interface Order {
-    productName: string;
-    quantity: number;
-}
+import { Order } from '../lib/types';
 
 @Component
 //  We export class instead of object
@@ -40,7 +36,7 @@ export default class OrderTS extends Vue {
 
   // Lifecycle hooks
   public created(): void {
-      console.log('Hello from created hook!');
+      console.log('Hello from created hook in TS app!');
   }
 
   // Watchers are replaced with @Watch decorator
