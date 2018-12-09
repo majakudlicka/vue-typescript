@@ -18,6 +18,7 @@
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator';
 import { Order } from '../lib/types';
 
+// Use of @Component decorator
 @Component
 //  We export class instead of object
 export default class OrderTS extends Vue {
@@ -36,13 +37,13 @@ export default class OrderTS extends Vue {
 
   // Lifecycle hooks
   public created(): void {
-      console.log('Hello from created hook in TS app!');
+      console.log('TS: Hello from created hook!');
   }
 
   // Watchers are replaced with @Watch decorator
   @Watch('order', { immediate: true, deep: true })
   onMessageChanged(val: Order) {
-      console.log(`Order quantity is ${val.quantity}`);
+      console.log(`Watcher TS: Order quantity is ${val.quantity}`);
   }
 
   // Computed props are defined as getters

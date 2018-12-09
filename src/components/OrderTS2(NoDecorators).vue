@@ -13,45 +13,49 @@
 </template>
 
 
-<script>
-    export default {
+<script lang="ts">
+    import Vue from 'vue';
+    import { Order } from '../lib/types';
+
+    export default Vue.extend({
         props: {
             msg: {
                 default: 'default value',
+                type: String,
             },
             order: {
-                type: Object,
+                type: Object as () => Order,
             },
         },
         data: () => ({
             bucketThreshold: 15,
         }),
         methods: {
-            increment() {
+            increment(): number {
                 return this.order.quantity++;
             },
-            decrement() {
+            decrement(): number {
                 return this.order.quantity--;
             },
         },
         created() {
-            console.log('JS: Hello from created hook!');
+            console.log('TS: Hello from created hook!');
         },
         watch: {
             order: {
-                handler(val) {
-                    console.log(`Watcher JS: Order quantity is ${val.quantity}`);
+                handler(val: Order): void {
+                    console.log(`Watcher TS: Order quantity is ${val.quantity}`);
                 },
                 deep: true,
                 immediate: true,
             },
         },
         computed: {
-            isAboveThreshold() {
+            isAboveThreshold(): string {
                 return (this.order.quantity < this.bucketThreshold) ? 'below bucket threshold' : 'above bucket threshold';
             },
         },
-    };
+    });
 </script>
 
 <style scoped>
