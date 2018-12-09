@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <OrderTS msg="Simple Order App in TS using classes" :order="exampleOrder" />
+    <OrderTS msg="Simple Order App in TS using Classes" :order="exampleOrder" />
     <br>
     <OrderJS msg="Simple Order App in JS" :order="exampleOrder"></OrderJS>
     <OrderTS2 msg="Simple Order App in TS using Vue.extend" :order="exampleOrder"></OrderTS2>
